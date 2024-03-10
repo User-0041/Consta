@@ -1,30 +1,27 @@
-package constat.mobile.dev;
+package constat.mobile.dev.Controlorles;
 
-import org.apache.tomcat.util.bcel.classfile.Constant;
-import org.junit.jupiter.api.Test;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import constat.mobile.dev.Entitys.Chouffeur;
 import constat.mobile.dev.Entitys.Constat;
 import constat.mobile.dev.Repositorys.ChouffeurRepository;
 import constat.mobile.dev.Repositorys.ConstatReporsitory;
 
-@SpringBootTest
-class DevApplicationTests {
-	@Autowired
+@RestController
+public class Test {
+    	@Autowired
 	ChouffeurRepository  chouffeurRepository;
 	@Autowired
 	ConstatReporsitory  constatReporsitory;
+     @GetMapping("/Test")
+    List<Constat> all() {
+        Chouffeur c1 = new Chouffeur();
 
-	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	void Mytest(){
-		Chouffeur c1 = new Chouffeur();
-		Chouffeur c2 = new Chouffeur();
+        Chouffeur c2 = new Chouffeur();
 		c1.setName("Barg El Lil");
 		c2.setName("9ar3ish");
 
@@ -36,7 +33,9 @@ class DevApplicationTests {
 
 		constatReporsitory.save(c);
 
+		System.out.println(constatReporsitory.findAll());
 
-	}
 
+        return (List<Constat>) constatReporsitory.findAll() ;
+      }
 }
