@@ -26,11 +26,10 @@ class DevApplicationTests {
 		Chouffeur c1 = new Chouffeur();
 		Chouffeur c2 = new Chouffeur();
 		c1.setName("Barg El Lil");
-		c2.setName("9ar3ish");
-
+		c2.setName("emna");
 		Constat c = new Constat();
 		c.setChouffeurA(c1);
-		c.setChouffeurA(c2);
+		c.setChouffeurB(c2);
 		chouffeurRepository.save(c1);
 		chouffeurRepository.save(c2);
 

@@ -27,7 +27,7 @@ public class Test {
 
 		Constat c = new Constat();
 		c.setChouffeurA(c1);
-		c.setChouffeurA(c2);
+		c.setChouffeurB(c2);
 		chouffeurRepository.save(c1);
 		chouffeurRepository.save(c2);
 

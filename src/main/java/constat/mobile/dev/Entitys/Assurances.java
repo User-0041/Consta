@@ -24,5 +24,4 @@ public class Assurances {
 @OneToMany
   private Set<Assureur> assureur;
 
-
 }
