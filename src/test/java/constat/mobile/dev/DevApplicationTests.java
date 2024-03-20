@@ -25,7 +25,7 @@ class DevApplicationTests {
 	void Mytest(){
 		Chouffeur c1 = new Chouffeur();
 		Chouffeur c2 = new Chouffeur();
-		c1.setName("Barg El Lil");
+		c1.setName("Barg");
 		c2.setName("emna");
 		Constat c = new Constat();
 		c.setChouffeurA(c1);

@@ -19,6 +19,7 @@ public class Test {
 	ConstatReporsitory  constatReporsitory;
      @GetMapping("/Test")
     List<Constat> all() {
+
         Chouffeur c1 = new Chouffeur();
 
         Chouffeur c2 = new Chouffeur();
@@ -30,12 +31,8 @@ public class Test {
 		c.setChouffeurB(c2);
 		chouffeurRepository.save(c1);
 		chouffeurRepository.save(c2);
-
 		constatReporsitory.save(c);
-
 		System.out.println(constatReporsitory.findAll());
-
-
         return (List<Constat>) constatReporsitory.findAll() ;
       }
 }
