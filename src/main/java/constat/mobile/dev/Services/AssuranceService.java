@@ -1,32 +1,37 @@
 package constat.mobile.dev.Services;
 
-import org.springframework.data.repository.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import constat.mobile.dev.Entitys.Assurances;
+import constat.mobile.dev.Repositorys.AssurancesRepository;
 
 @Service
 public class AssuranceService {
 
     @Autowired
-    private AssuranceRepository assuranceRepository;
+    private AssurancesRepository assuranceRepository;
 
     // Méthode pour récupérer toutes les assurances
-    public List<Assurance> getAllAssurances() {
-        return assuranceRepository.findAll();
+    public List<Assurances> getAllAssurances() {
+        return (List<Assurances>) assuranceRepository.findAll();
     }
 
     // Méthode pour récupérer une assurance par son ID
-    public Assurance getAssuranceById(Long id) {
+    public Assurances getAssuranceById(Integer id) {
         return assuranceRepository.findById(id).orElse(null);
     }
 
     // Méthode pour ajouter une nouvelle assurance
-    public Assurance addAssurance(Assurance assurance) {
+    public Assurances addAssurance(Assurances assurance) {
         return assuranceRepository.save(assurance);
     }
 
     // Méthode pour mettre à jour une assurance existante
-    public Assurance updateAssurance(Long id, Assurance assurance) {
+    public Assurances updateAssurance(Integer id, Assurances assurance) {
         if (assuranceRepository.existsById(id)) {
             assurance.setId(id);
             return assuranceRepository.save(assurance);
@@ -36,7 +41,7 @@ public class AssuranceService {
     }
 
     // Méthode pour supprimer une assurance
-    public boolean deleteAssurance(Long id) {
+    public boolean deleteAssurance(Integer id) {
         if (assuranceRepository.existsById(id)) {
             assuranceRepository.deleteById(id);
             return true;

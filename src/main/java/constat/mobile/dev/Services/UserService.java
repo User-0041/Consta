@@ -1,8 +1,14 @@
 package constat.mobile.dev.Services;
 
-import org.springframework.data.repository.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import constat.mobile.dev.Entitys.User;
+import constat.mobile.dev.Repositorys.UserRepository;
 
 @Service
 public class UserService {
@@ -12,13 +18,13 @@ public class UserService {
 
     // Méthode pour récupérer tous les utilisateurs
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return (List<User>) userRepository.findAll();
     }
 
     // Méthode pour récupérer un utilisateur par son ID
-    public User getUserById(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Utilisateur introuvable avec l'ID : " + id));
+    public Optional<User> getUserById(Integer id) {
+        return userRepository.findById(id);
+            
     }
 
     // Méthode pour créer un nouvel utilisateur
@@ -28,10 +34,10 @@ public class UserService {
     }
 
     // Méthode pour mettre à jour un utilisateur existant
-    public User updateUser(Long id, User user) {
+    public User updateUser(Integer id, User user) {
         // Vérifie si l'utilisateur existe
         if (!userRepository.existsById(id)) {
-            throw new UserNotFoundException("Utilisateur introuvable avec l'ID : " + id);
+            return null; 
         }
         // Met à jour l'utilisateur avec les nouvelles données
         user.setId(id);
@@ -39,10 +45,10 @@ public class UserService {
     }
 
     // Méthode pour supprimer un utilisateur
-    public void deleteUser(Long id) {
+    public void deleteUser(Integer id) {
         // Vérifie si l'utilisateur existe
         if (!userRepository.existsById(id)) {
-            throw new UserNotFoundException("Utilisateur introuvable avec l'ID : " + id);
+            return  ;
         }
         // Supprime l'utilisateur
         userRepository.deleteById(id);

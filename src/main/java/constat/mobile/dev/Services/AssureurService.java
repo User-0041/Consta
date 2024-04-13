@@ -1,9 +1,13 @@
 package constat.mobile.dev.Services;
 
-import org.springframework.data.repository.Autowired;
-import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import constat.mobile.dev.Entitys.Assureur;
+import constat.mobile.dev.Repositorys.AssureurRepository;
 
 @Service
 public class AssureurService {
@@ -12,10 +16,10 @@ public class AssureurService {
     private AssureurRepository assureurRepository;
 
     public List<Assureur> getAllAssureurs() {
-        return assureurRepository.findAll();
+        return (List<Assureur>) assureurRepository.findAll();
     }
 
-    public Optional<Assureur> getAssureurById(Long id) {
+    public Optional<Assureur> getAssureurById(Integer id) {
         return assureurRepository.findById(id);
     }
 
@@ -23,16 +27,15 @@ public class AssureurService {
         return assureurRepository.save(assureur);
     }
 
-    public void deleteAssureur(Long id) {
+    public void deleteAssureur(Integer id) {
         assureurRepository.deleteById(id);
     }
 
-    public Assureur updateAssureur(Long id, Assureur newAssureur) {
+    public Assureur updateAssureur(Integer id, Assureur newAssureur) {
         Optional<Assureur> optionalAssureur = assureurRepository.findById(id);
         if (optionalAssureur.isPresent()) {
             Assureur assureur = optionalAssureur.get();
-            assureur.setNom(newAssureur.getNom());
-            assureur.setAdresse(newAssureur.getAdresse());
+            assureur.setTel(newAssureur.getTel());
             return assureurRepository.save(assureur);
         } else {
             throw new RuntimeException("Assureur non trouvé avec l'ID : " + id);

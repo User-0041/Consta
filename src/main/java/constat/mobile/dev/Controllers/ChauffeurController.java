@@ -5,6 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import constat.mobile.dev.Entitys.Chouffeur;
+import constat.mobile.dev.Services.ChouffeurService;
+
 import java.util.List;
 
 @RestController
@@ -12,21 +15,21 @@ import java.util.List;
 public class ChauffeurController {
 
     @Autowired
-    private ChauffeurService chauffeurService;
+    private ChouffeurService chauffeurService;
 
     // Endpoint pour récupérer tous les chauffeurs
     @GetMapping
-    public ResponseEntity<List<Chauffeur>> getAllChauffeurs() {
-        List<Chauffeur> chauffeurs = chauffeurService.getAllChauffeurs();
+    public ResponseEntity<List<Chouffeur>> getAllChauffeurs() {
+        List<Chouffeur> chauffeurs = chauffeurService.getAllChauffeurs();
         return new ResponseEntity<>(chauffeurs, HttpStatus.OK);
     }
 
     // Endpoint pour récupérer un chauffeur par son ID
     @GetMapping("/{id}")
-    public ResponseEntity<Chauffeur> getChauffeurById(@PathVariable("id") Long id) {
-        Chauffeur chauffeur = chauffeurService.getChauffeurById(id);
-        if (chauffeur != null) {
-            return new ResponseEntity<>(chauffeur, HttpStatus.OK);
+    public ResponseEntity<Chouffeur> getChauffeurById(@PathVariable("id") Integer id) {
+        Chouffeur chouffeur = chauffeurService.getChouffeurById(id);
+        if (chouffeur != null) {
+            return new ResponseEntity<>(chouffeur, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -34,15 +37,15 @@ public class ChauffeurController {
 
     // Endpoint pour ajouter un nouveau chauffeur
     @PostMapping
-    public ResponseEntity<Chauffeur> addChauffeur(@RequestBody Chauffeur chauffeur) {
-        Chauffeur newChauffeur = chauffeurService.addChauffeur(chauffeur);
+    public ResponseEntity<Chouffeur> addChauffeur(@RequestBody Chouffeur chauffeur) {
+        Chouffeur newChauffeur = chauffeurService.addChouffeur(chauffeur);
         return new ResponseEntity<>(newChauffeur, HttpStatus.CREATED);
     }
 
     // Endpoint pour mettre à jour un chauffeur existant
     @PutMapping("/{id}")
-    public ResponseEntity<Chauffeur> updateChauffeur(@PathVariable("id") Long id, @RequestBody Chauffeur chauffeur) {
-        Chauffeur updatedChauffeur = chauffeurService.updateChauffeur(id, chauffeur);
+    public ResponseEntity<Chouffeur> updateChauffeur(@PathVariable("id") Integer id, @RequestBody Chouffeur chauffeur) {
+        Chouffeur updatedChauffeur = chauffeurService.updateChouffeur(id, chauffeur);
         if (updatedChauffeur != null) {
             return new ResponseEntity<>(updatedChauffeur, HttpStatus.OK);
         } else {
@@ -52,8 +55,8 @@ public class ChauffeurController {
 
     // Endpoint pour supprimer un chauffeur
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteChauffeur(@PathVariable("id") Long id) {
-        boolean deleted = chauffeurService.deleteChauffeur(id);
+    public ResponseEntity<Void> deleteChauffeur(@PathVariable("id") Integer id) {
+        boolean deleted = chauffeurService.deleteChouffeur(id);
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {

@@ -4,7 +4,9 @@ package constat.mobile.dev.Entitys;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -14,7 +16,9 @@ public class Vehicule {
 @Id
 private String idMatricule;
 private String marque;
-private String sens;
+private String from;
+private String to;
+
 @ManyToOne
 private Assureur assureur;
 }

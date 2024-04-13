@@ -1,31 +1,37 @@
 package constat.mobile.dev.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import constat.mobile.dev.Entitys.Assurances;
+import constat.mobile.dev.Services.AssuranceService;
 
 @RestController
 @RequestMapping("/assurances")
 public class AssuranceController {
-
+@Autowired
+AssuranceService assuranceService;
     @GetMapping("/{id}")
-    public Assurance getAssuranceById(@PathVariable Long id) {
+    public Assurances getAssuranceById(@PathVariable Integer id) {
         // Code pour récupérer une assurance par son ID depuis la base de données
         return assuranceService.getAssuranceById(id);
     }
 
     @PostMapping
-    public Assurance createAssurance(@RequestBody Assurance assurance) {
+    public Assurances createAssurance(@RequestBody Assurances assurance) {
         // Code pour créer une nouvelle assurance dans la base de données
-        return assuranceService.createAssurance(assurance);
+        return assuranceService.addAssurance(assurance);
     }
 
     @PutMapping("/{id}")
-    public Assurance updateAssurance(@PathVariable Long id, @RequestBody Assurance assuranceDetails) {
+    public Assurances updateAssurance(@PathVariable Integer id, @RequestBody Assurances assuranceDetails) {
         // Code pour mettre à jour une assurance existante dans la base de données
         return assuranceService.updateAssurance(id, assuranceDetails);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteAssurance(@PathVariable Long id) {
+    public ResponseEntity<?> deleteAssurance(@PathVariable Integer id) {
         // Code pour supprimer une assurance de la base de données
         assuranceService.deleteAssurance(id);
         return ResponseEntity.ok().build();
