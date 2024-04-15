@@ -15,12 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy =InheritanceType.SINGLE_TABLE)
-public class Assureur extends User  {
+public class Assureur extends User{
 private String tel ;
 @OneToMany
 private Set<Vehicule> vehicules; 
-
-
 @ManyToOne
 private Assurances assurances;
 }
