@@ -8,10 +8,12 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Inheritance(strategy =InheritanceType.SINGLE_TABLE)
 @Entity
+@EqualsAndHashCode(callSuper = false)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor 
