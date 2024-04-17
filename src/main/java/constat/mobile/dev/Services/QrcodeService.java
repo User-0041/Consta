@@ -26,7 +26,7 @@ public class QrcodeService<BitMatrix> {
         @SuppressWarnings("unchecked")
         BitMatrix bitMatrix = (BitMatrix) qrCodeWriter.encode(text, BarcodeFormat.hashCode(), width, hints);
 
-        BufferedImage bufferedImage = ((Object) MatrixToImageWriter).toBufferedImage();
+        BufferedImage bufferedImage = ((Object) MatrixToImageWriter Writer).toBufferedImage();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ImageIO.write(bufferedImage, "png", outputStream);
 
