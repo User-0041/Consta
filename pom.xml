@@ -66,8 +66,8 @@
            <groupId>com.itextpdf</groupId>
            <artifactId>itext7-core</artifactId>
            <version>7.1.15</version>
-    </dependency>
-
+        </dependency>
+    
    <dependency>
      <groupId>org.apache.poi</groupId>
      <artifactId>poi</artifactId>
