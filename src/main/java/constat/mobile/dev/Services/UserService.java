@@ -34,7 +34,7 @@ public class UserService {
     }
 
     // Méthode pour mettre à jour un utilisateur existant
-    public User updateUser(Integer id, User user) {
+    public User updateUser(Long id, User user) {
         // Vérifie si l'utilisateur existe
         if (!userRepository.existsById(id)) {
             return null; 
@@ -45,7 +45,7 @@ public class UserService {
     }
 
     // Méthode pour supprimer un utilisateur
-    public void deleteUser(Integer id) {
+    public void deleteUser(Long id) {
         // Vérifie si l'utilisateur existe
         if (!userRepository.existsById(id)) {
             return  ;

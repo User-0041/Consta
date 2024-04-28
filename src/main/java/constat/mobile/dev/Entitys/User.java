@@ -1,5 +1,7 @@
 package constat.mobile.dev.Entitys;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,15 +11,15 @@ import jakarta.persistence.InheritanceType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+@SuppressWarnings("unused")
 @Entity
-@Inheritance(strategy =InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy =InheritanceType.TABLE_PER_CLASS)
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class User {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
+  private Long id;
 
   private String name;
 

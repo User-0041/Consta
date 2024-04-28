@@ -3,24 +3,15 @@ package constat.mobile.dev.Entitys;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-@EqualsAndHashCode(callSuper = false)
-@Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Inheritance(strategy =InheritanceType.SINGLE_TABLE)
+@Data
 public class Assureur extends User{
 private String tel ;
-@OneToMany
-private Set<Car> Cars; 
+@OneToMany(mappedBy = "assureur")
+private Set<Voiture> Voitures; 
 @ManyToOne
-private Assurances assurances;
+Assurance assurance;
 }

@@ -7,21 +7,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class Assurances {
+public class Assurance {
 @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
+  private Long id;
   private String name;
-@OneToMany
-  private Set<Constat> constats;
-@OneToMany
-  private Set<Assureur> assureur;
 
+@OneToMany(mappedBy = "assurance")
+  private Set<Assureur> assureurs;
 }
