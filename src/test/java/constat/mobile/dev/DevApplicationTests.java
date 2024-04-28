@@ -28,7 +28,7 @@ class DevApplicationTests {
 		c2.setName("emna");
 		Constat c = new Constat();
 		c.setChouffeurA(c1);
-		c.setChouffeurB(c2);
+		((Object) c).setChouffeurB(c2);
 		chouffeurRepository.save(c1);
 		chouffeurRepository.save(c2);
 
