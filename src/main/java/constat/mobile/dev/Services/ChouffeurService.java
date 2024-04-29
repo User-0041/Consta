@@ -19,7 +19,7 @@ public class ChouffeurService {
         return (List<Chouffeur>) chouffeurRepository.findAll();
     }
 
-    public Chouffeur getChouffeurById(Integer id) {
+    public Chouffeur getChouffeurById(Long id) {
         return chouffeurRepository.findById(id).orElse(null);
     }
 
@@ -27,7 +27,7 @@ public class ChouffeurService {
         return chouffeurRepository.save(chouffeur);
     }
 
-    public Chouffeur updateChouffeur(Integer id, Chouffeur newChouffeur) {
+    public Chouffeur updateChouffeur(Long id, Chouffeur newChouffeur) {
         Chouffeur existingChouffeur = chouffeurRepository.findById(id).orElse(null);
         if (existingChouffeur != null) {
             existingChouffeur.setName(newChouffeur.getName());

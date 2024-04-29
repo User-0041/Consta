@@ -33,7 +33,7 @@ public class AssuranceService<id> {
         Long id;
         if (assuranceRepository.existsById(id)) {
             ((Assurance) assurance).setId(id);
-            return assuranceRepository.save(assurance);
+            return assuranceRepository.saveAll(assurance);
         } else {
             return null;
         }

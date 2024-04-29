@@ -19,6 +19,8 @@ public interface AssurancesRepository extends CrudRepository<Assurance, Integer>
 
     void deleteById(Long id);
 
+    <id> Assurance saveAll(id assurance);
+
   
 
 
