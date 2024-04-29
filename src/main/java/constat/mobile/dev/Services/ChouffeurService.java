@@ -32,7 +32,7 @@ public class ChouffeurService {
         if (existingChouffeur != null) {
             existingChouffeur.setName(newChouffeur.getName());
             existingChouffeur.setPermisDeConduire(newChouffeur.getPermisDeConduire());
-            existingChouffeur.setDelivre(((Object) newChouffeur).getdelivre());
+            existingChouffeur.setDelivre((newChouffeur).getdelivre());
             return chouffeurRepository.save(existingChouffeur);
         }
         return null;

@@ -22,4 +22,40 @@ public void setPermisDeConduire(Object permisDeConduire2) {
   
     throw new UnsupportedOperationException("Unimplemented method 'setPermisDeConduire'");
 }
+public Object getdelivre() {
+	throw new UnsupportedOperationException("Unimplemented method 'getdelivre'");
+}
+public void setDelivre(Object getdelivre) {
+    throw new UnsupportedOperationException("Unimplemented method 'setDelivre'");
+}
+/**
+ * @param permisDeConduire the permisDeConduire to set
+ */
+public void setPermisDeConduire(long permisDeConduire) {
+  this.permisDeConduire = permisDeConduire;
+}
+/**
+ * @return the delivre
+ */
+public Date getDelivre() {
+  return delivre;
+}
+/**
+ * @param delivre the delivre to set
+ */
+public void setDelivre(Date delivre) {
+  this.delivre = delivre;
+}
+/**
+ * @return the constats
+ */
+public Set<Constat> getConstats() {
+  return constats;
+}
+/**
+ * @param constats the constats to set
+ */
+public void setConstats(Set<Constat> constats) {
+  this.constats = constats;
+}
 }

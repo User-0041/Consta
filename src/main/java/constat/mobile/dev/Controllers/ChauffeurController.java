@@ -26,7 +26,7 @@ public class ChauffeurController {
 
     // Endpoint pour récupérer un chauffeur par son ID
     @GetMapping("/{id}")
-    public ResponseEntity<Chouffeur> getChauffeurById(@PathVariable("id") Integer id) {
+    public ResponseEntity<Chouffeur> getChauffeurById(@PathVariable("id") Long id) {
         Chouffeur chouffeur = chauffeurService.getChouffeurById(id);
         if (chouffeur != null) {
             return new ResponseEntity<>(chouffeur, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class ChauffeurController {
 
     // Endpoint pour mettre à jour un chauffeur existant
     @PutMapping("/{id}")
-    public ResponseEntity<Chouffeur> updateChauffeur(@PathVariable("id") Integer id, @RequestBody Chouffeur chauffeur) {
+    public ResponseEntity<Chouffeur> updateChauffeur(@PathVariable("id") Long id, @RequestBody Chouffeur chauffeur) {
         Chouffeur updatedChauffeur = chauffeurService.updateChouffeur(id, chauffeur);
         if (updatedChauffeur != null) {
             return new ResponseEntity<>(updatedChauffeur, HttpStatus.OK);
