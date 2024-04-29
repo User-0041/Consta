@@ -10,6 +10,7 @@ import constat.mobile.dev.Entitys.Assurance;
 
 
 
+
 public interface AssurancesRepository extends CrudRepository<Assurance, Integer> {
 
     boolean existsById(Long id);
@@ -17,6 +18,8 @@ public interface AssurancesRepository extends CrudRepository<Assurance, Integer>
     Optional<Assurance> findById(Long id);
 
     void deleteById(Long id);
+
+  
 
 
 }

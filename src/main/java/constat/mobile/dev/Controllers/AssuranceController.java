@@ -17,6 +17,7 @@ import constat.mobile.dev.Services.AssuranceService;
 @RestController
 @RequestMapping("/assurances")
 public class AssuranceController {
+@SuppressWarnings("rawtypes")
 @Autowired
 AssuranceService assuranceService;
     @GetMapping("/{id}")

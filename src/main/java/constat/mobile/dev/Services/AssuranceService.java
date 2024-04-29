@@ -1,8 +1,6 @@
 package constat.mobile.dev.Services;
 
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +8,7 @@ import constat.mobile.dev.Entitys.Assurance;
 import constat.mobile.dev.Repositorys.AssurancesRepository;
 
 @Service
-public class AssuranceService {
+public class AssuranceService<id> {
 
     @Autowired
     private AssurancesRepository assuranceRepository;
@@ -21,7 +19,7 @@ public class AssuranceService {
     }
 
     // Méthode pour récupérer une assurance par son ID
-    public Assurance getAssuranceById(Long id) {
+    public Assurance getAssuranceById( id ) {
         return assuranceRepository.findById(id).orElse(null);
     }
 
@@ -31,9 +29,10 @@ public class AssuranceService {
     }
 
     // Méthode pour mettre à jour une assurance existante
-    public Assurance updateAssurance(Long id, Assurance assurance) {
+    public Assurance updateAssurance(id  assurance) {
+        Long id;
         if (assuranceRepository.existsById(id)) {
-            assurance.setId(id);
+            ((Assurance) assurance).setId(id);
             return assuranceRepository.save(assurance);
         } else {
             return null;
