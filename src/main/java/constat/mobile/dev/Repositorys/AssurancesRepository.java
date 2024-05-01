@@ -21,6 +21,10 @@ public interface AssurancesRepository extends CrudRepository<Assurance, Integer>
 
     <id> Assurance saveAll(id assurance);
 
+    Assurance save(Long assurance);
+
+    
+
   
 
 

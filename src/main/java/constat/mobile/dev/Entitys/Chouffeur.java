@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToMany;
 
 @Entity
 RCData
-public class Chouffeur  extends User{
+public class Chouffeur<permisDeConduire>  extends User{
   private long permisDeConduire;
   private Date delivre;
   @ManyToMany
@@ -28,34 +28,81 @@ public Object getdelivre() {
 public void setDelivre(Object getdelivre) {
     throw new UnsupportedOperationException("Unimplemented method 'setDelivre'");
 }
-/**
- * @param permisDeConduire the permisDeConduire to set
- */
+
+ @param permisDeConduire the permisDeConduire to set
+ 
 public void setPermisDeConduire(long permisDeConduire) {
   this.permisDeConduire = permisDeConduire;
 }
-/**
- * @return the delivre
- */
+
+  @return the delivre
+ 
 public Date getDelivre() {
   return delivre;
 }
-/**
- * @param delivre the delivre to set
- */
+
+  @param delivre the delivre to set
+ 
 public void setDelivre(Date delivre) {
   this.delivre = delivre;
 }
-/**
- * @return the constats
- */
+ @return the constats
+ 
 public Set<Constat> getConstats() {
   return constats;
 }
-/**
- * @param constats the constats to set
- */
+
+  @param constats the constats to set
+ 
 public void setConstats(Set<Constat> constats) {
   this.constats = constats;
 }
 }
+
+
+
+
+
+
+
+/*package constat.mobile.dev.Entitys;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+
+@Entity
+public class Chouffeur extends User {
+    private long permisDeConduire;
+    private Date delivre;
+    @ManyToMany
+    private Set<Constat> constats = new HashSet<>();
+
+    public long getPermisDeConduire() {
+        return permisDeConduire;
+    }
+
+    public void setPermisDeConduire(long permisDeConduire) {
+        this.permisDeConduire = permisDeConduire;
+    }
+
+    public Date getDelivre() {
+        return delivre;
+    }
+
+    public void setDelivre(Date delivre) {
+        this.delivre = delivre;
+    }
+
+    public Set<Constat> getConstats() {
+        return constats;
+    }
+
+    public void setConstats(Set<Constat> constats) {
+        this.constats = constats;
+    }
+}
+*/

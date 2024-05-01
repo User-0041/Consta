@@ -21,4 +21,10 @@ public class Voiture {
     private AssureurService assureur;
  @ManyToMany
  private Set<Constat> constats = new HashSet<>();
+public Object getMarque() {
+    throw new UnsupportedOperationException("Unimplemented method 'getMarque'");
+}
+public void setMarque(Object marque) {
+    throw new UnsupportedOperationException("Unimplemented method 'setMarque'");
+}
 }

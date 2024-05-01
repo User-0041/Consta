@@ -18,14 +18,14 @@ public class VoitureService<Vehicule> {
     private static VoitureRepository VoitureRepository;
 
     // Méthode pour récupérer tous les véhicules
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({ "unchecked" })
     public static List<Voiture> getAllVoiture() {
         return (List<Voiture>) VoitureRepository.findAll();
     }
 
     // Méthode pour récupérer un véhicule par son ID
     public Voiture getVoitureById(Long id) {
-        @SuppressWarnings({ "rawtypes", "unchecked" })
+        @SuppressWarnings({ "unchecked" })
         Optional<Voiture> optionalVoiture = VoitureRepository.findById(id);
         return optionalVoiture.orElse(null);
     }
@@ -37,24 +37,24 @@ public class VoitureService<Vehicule> {
     }
 
     // Méthode pour mettre à jour un véhicule existant
+
     @SuppressWarnings("unchecked")
     public Voiture updateVoiture(Long id, Voiture newVoiture) {
         Optional<Voiture> optionalVoiture = VoitureRepository.findById(id);
         if (optionalVoiture.isPresent()) {
-            Voiture existingVoiture = optionalVoiture.getVoitureById();
-
-            existingVoiture.setMarque(((Object) newVoiture).getMarque());
-        
-            return (Voiture) VoitureRepository.save(existingVoiture);
+            Voiture existingVoiture = optionalVoiture.get(); // Retrieve Voiture object from Optional
+    
+            existingVoiture.setMarque(newVoiture.getMarque());
+    
+            return (constat.mobile.dev.Entitys.Voiture) VoitureRepository.save(existingVoiture);
         } else {
             return null;
         }
     }
-
+    
     // Méthode pour supprimer un véhicule
     @SuppressWarnings("unchecked")
     public boolean deleteVoiture(Long id) {
-        @SuppressWarnings("unchecked")
         Optional<Voiture> optionalVoiture = VoitureRepository.findById(id);
         if (optionalVoiture.isPresent()) {
             VoitureRepository.deleteById(id);

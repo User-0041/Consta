@@ -6,8 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
-@Entity
 
+@Entity
 @Data
 public class Assureur extends User{
 private String tel ;

@@ -19,7 +19,7 @@ public class AssuranceService<id> {
     }
 
     // Méthode pour récupérer une assurance par son ID
-    public Assurance getAssuranceById( id ) {
+    public Assurance getAssuranceById(Integer id ) {
         return assuranceRepository.findById(id).orElse(null);
     }
 
@@ -29,8 +29,8 @@ public class AssuranceService<id> {
     }
 
     // Méthode pour mettre à jour une assurance existante
-    public Assurance updateAssurance(id  assurance) {
-        Long id;
+    public Assurance updateAssurance(Long id, Assurance assurance) {
+    
         if (assuranceRepository.existsById(id)) {
             ((Assurance) assurance).setId(id);
             return assuranceRepository.saveAll(assurance);
@@ -49,7 +49,7 @@ public class AssuranceService<id> {
         }
     }
 
-    public Assurance updateAssurance(Long id, Assurance assuranceDetails) {
+    public Assurance updateAssurance(Long id ) {
        
         throw new UnsupportedOperationException("Unimplemented method 'updateAssurance'");
     }
